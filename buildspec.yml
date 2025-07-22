@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Install Angular dependencies"
+      - cd frontend
+      - npm install
+  build:
+    commands:
+      - echo "Build Angular App"
+      - npm run build --configuration production
+artifacts:
+  files:
+    - appspec.yml
+    - scripts/deploy.sh
+    - frontend/dist/**/* 
+    - backend/**/*
